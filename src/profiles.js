@@ -70,9 +70,7 @@ var saveProfile = function (results) {
         } else {  // Replace old profile with captured profile
             profiles[profileIndex].firstName = updatedProfile.firstName ? updatedProfile.firstName : profiles[profileIndex].firstName;
             profiles[profileIndex].lastName = updatedProfile.lastName ? updatedProfile.lastName : profiles[profileIndex].lastName;
-            profiles[profileIndex].alias = updatedProfile.alias ? updatedProfile.alias : profiles[profileIndex].alias;
             profiles[profileIndex].email = updatedProfile.email ? updatedProfile.email : profiles[profileIndex].email;
-            profiles[profileIndex].gender = updatedProfile.gender ? updatedProfile.gender : profiles[profileIndex].gender;
             profiles[profileIndex].dob = updatedProfile.dob ? updatedProfile.dob : profiles[profileIndex].dob;
             profiles[profileIndex].password = updatedProfile.password ? updatedProfile.password : profiles[profileIndex].password;
 

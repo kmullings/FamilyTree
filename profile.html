@@ -37,8 +37,7 @@
                 <span id="dob"></span>
             </div>
             <div class="buttons">
-                <button id="back-button" class="btn btn-primary" type="submit">Back</button>
-                <a href="edit-profile.html">Edit</a>
+                <a href="edit-profile.html" class="btn btn-primary">Edit</a>
             </div>
         </section>
     </div>
@@ -46,10 +45,9 @@
         <iframe class="footer" src="footer.html" width="100%"></iframe>
     </footer>
 
-    <script src="./src/profiles.js"></script>
     <script>
         window.onload = function (e) {
-            // debugger;
+            debugger;
 
             // Checked user is logged in
             if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
@@ -62,6 +60,7 @@
             displayProfile(results.profile);
         };
     </script>
+    <script src="./src/profiles.js"></script>
 </body>
 
 </html>
