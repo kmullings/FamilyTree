@@ -1,5 +1,5 @@
 window.onload = function (e) {
-    // debugger;
+    debugger;
 
     if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
         alert("You need to be logged in first.");
@@ -14,7 +14,7 @@ window.onload = function (e) {
  */
 var loadFamilyTree = function () {
     // Get the stories div
-    const familyTreeNode = document.getElementById("faily-tree");
+    const familyTreeNode = document.getElementById("family-tree");
 
     // Get list of stories
     let familyMembers = window.localStorage.familyMembers ? JSON.parse(window.localStorage.familyMembers) : [];
@@ -39,10 +39,10 @@ var createFamilyMemberNode = function (familyMember) {
     var editNode = document.createElement("a");
     var deleteNode = document.createElement("span");
 
-    detailsNode.setAttribute("href", "family-member-details.html?id=" + family-member.id);
-    detailsNode.innerHTML = '<span class="family-member-name">' + family-member.firstName + + ' ' + family-member.lastName + '</span> |';
+    detailsNode.setAttribute("href", "family-member-details.html?id=" + familyMember.id);
+    detailsNode.innerHTML = '<span class="family-member-name">' + familyMember.firstName + ' ' + familyMember.lastName + '</span> |';
 
-    editNode.setAttribute("href", "upsert-family-member.html?id=" + family-member.id);
+    editNode.setAttribute("href", "upsert-family-member.html?id=" + familyMember.id);
     editNode.innerHTML = '<span class="edit-button"> \
         <i>Edit</i> \
     </span> |';
@@ -58,10 +58,10 @@ var createFamilyMemberNode = function (familyMember) {
     return familyMemberNode;
 }
 
-document.getElementsByClassName("delete-button").addEventListener("click", function (e) {
-    debugger;
+// document.getElementsByClassName("delete-button").addEventListener("click", function (e) {
+//     debugger;
 
-    e.preventDefault();
+//     e.preventDefault();
 
-    alert("Clicked delete button.");
-});
+//     alert("Clicked delete button.");
+// });
