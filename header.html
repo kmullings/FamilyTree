@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/header.css">
+</head>
+
+<body>
+    <header>
+        <nav class="header-nav">
+            <ul>
+                <li>
+                    <a href="index.html" target="_parent" class="logo-header">FamilyTree</a>
+                </li>
+                <li>
+                    <a href="index.html" target="_parent">Home</a>
+                </li>
+                <li>
+                    <a href="login.html" target="_parent">Login</a>
+                </li>
+                <li>
+                    <a href="sign-up.html" target="_parent">Sign Up</a>
+                </li>
+                <li>
+                    <a href="profile.html" target="_parent">Profile</a>
+                </li>
+                <li>
+                    <a href="index.html" target="_parent" onclick="logout();">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        var logout = function () {
+            window.sessionStorage.loggedIn = false;
+        }
+    </script>
+</body>
+
+</html>
