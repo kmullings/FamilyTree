@@ -9,14 +9,6 @@ window.onload = function (e) {
     loadFamilyTree();
 };
 
-document.getElementsByClassName("delete-button").addEventListener("click", function (e) {
-    debugger;
-
-    e.preventDefault();
-
-    alert("Clicked delete button.");
-});
-
 /**
  * 
  */
@@ -65,3 +57,11 @@ var createFamilyMemberNode = function (familyMember) {
 
     return familyMemberNode;
 }
+
+document.getElementsByClassName("delete-button").addEventListener("click", function (e) {
+    debugger;
+
+    e.preventDefault();
+
+    alert("Clicked delete button.");
+});
