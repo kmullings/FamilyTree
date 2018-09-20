@@ -6,7 +6,7 @@ window.onload = function (e) {
         window.location.href = "./login.html";
     }
 
-    const results = loadStory();
+    const results = loadFamilyMember();
 
-    displayStory(results.story);
+    displayFamilyMember(results.familyMember);
 };

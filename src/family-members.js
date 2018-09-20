@@ -1,21 +1,21 @@
 /**
  * 
  */
-var loadStory = function () {
+var loadFamilyMember = function () {
     // debugger;
 
-    let story = null;
-    let storyIndex = null;
+    let familyMember = null;
+    let familyMemberIndex = null;
     const url = new URL(window.location.href);
-    const storyId = url.searchParams.get("id");
-    let stories = window.localStorage.stories ? JSON.parse(window.localStorage.stories) : [];
+    const familyMemberId = url.searchParams.get("id");
+    let familyMembers = window.localStorage.familyMembers ? JSON.parse(window.localStorage.familyMembers) : [];
 
-    if (storyId) {
-        for (let index = 0; index < stories.length; index++) {
-            story = stories[index];
+    if (familyMemberId) {
+        for (let index = 0; index < familyMembers.length; index++) {
+            familyMember = familyMembers[index];
 
-            if (story.id == parseInt(storyId)) {
-                storyIndex = index;
+            if (familyMember.id == parseInt(familyMemberId)) {
+                familyMemberIndex = index;
 
                 break;
             }
@@ -23,8 +23,8 @@ var loadStory = function () {
     }
 
     const results = {
-        story: story,
-        index: storyIndex
+        familyMember: familyMember,
+        index: familyMemberIndex
     };
 
     return results;
@@ -32,96 +32,78 @@ var loadStory = function () {
 
 /**
  * 
- * @param {*} story 
+ * @param {*} familyMember 
  */
-var displayStory = function (story) {
+var displayFamilyMember = function (familyMember) {
     // debugger;
 
-    if (story != null) {
-        document.getElementById("title").innerText = story.title;
-        document.getElementById("text").innerText = story.text;
-        document.getElementById("address1").innerText = story.address1;
-        document.getElementById("address2").innerText = story.address2;
-        document.getElementById("city").innerText = story.city;
-        document.getElementById("state").innerText = story.state;
-        document.getElementById("zip").innerText = story.zip;
-        document.getElementById("country").innerText = story.country;
+    if (familyMember != null) {
+        document.getElementById("first-name").innerText = familyMember.firstName;
+        document.getElementById("last-name").innerText = familyMember.lastName;
+        document.getElementById("dob").innerText = familyMember.dob;
 
         let editButtonNode = document.getElementById("edit-button");
 
-        editButtonNode.setAttribute("href", "upsert-story.html?id=" + story.id);
+        editButtonNode.setAttribute("href", "upsert-family-member.html?id=" + familyMember.id);
     } else {
-        alert("Story not found.");
+        alert("Family member not found.");
     }
 }
 
 /**
  * 
- * @param {*} story 
+ * @param {*} familyMember 
  */
-var displayStoryForEdit = function (story) {
+var displayFamilyMemberForEdit = function (familyMember) {
     // debugger;
 
-    if (story != null) {
-        document.getElementById("title").value = story.title;
-        document.getElementById("text").value = story.text;
-        document.getElementById("address1").value = story.address1;
-        document.getElementById("address2").value = story.address2;
-        document.getElementById("city").value = story.city;
-        document.getElementById("state").value = story.state;
-        document.getElementById("zip").value = story.zip;
-        document.getElementById("country").value = story.country;
+    if (familyMember != null) {
+        document.getElementById("first-name").value = familyMember.firstName;
+        document.getElementById("last-name").value = familyMember.lastName;
+        document.getElementById("dob").value = familyMember.dob;
     } else {
-        alert("Story not found.");
+        alert("Family member not found.");
     }
 }
 
 /**
  * 
  */
-var saveStory = function () {
-    const story = {
-        title: document.forms["upsertStoryForm"]["title"].value,
-        text: document.forms["upsertStoryForm"]["text"].value,
-        // lat: document.forms["upsertStoryForm"]["lat"].value,
-        // long: document.forms["upsertStoryForm"]["long"].value,
-        address1: document.forms["upsertStoryForm"]["address1"].value,
-        address2: document.forms["upsertStoryForm"]["address2"].value,
-        city: document.forms["upsertStoryForm"]["city"].value,
-        state: document.forms["upsertStoryForm"]["state"].value,
-        zip: document.forms["upsertStoryForm"]["zip"].value,
-        country: document.forms["upsertStoryForm"]["country"].value,
-        dateTime: document.forms["upsertStoryForm"]["date-time"].value,
+var saveFamilyMember = function () {
+    const familyMember = {
+        firstName: document.forms["upsert-family-member-form"]["first-name"].value,
+        lastName: document.forms["upsert-family-member-form"]["last-name"].value,
+        dob: document.forms["upsert-family-member-form"]["dob"].value,
         createdBy: window.sessionStorage.loggedIn
     };
 
-    console.log(JSON.stringify(story));
+    console.log(JSON.stringify(familyMember));
 
     const url = new URL(window.location.href);
-    const storyId = url.searchParams.get("id");
-    let stories = window.localStorage.stories ? JSON.parse(window.localStorage.stories) : [];
+    const familyMemberId = url.searchParams.get("id");
+    let familyMembers = window.localStorage.familyMembers ? JSON.parse(window.localStorage.familyMembers) : [];
 
-    if (storyId) {
-        for (let index = 0; index < stories.length; index++) {
-            if (stories[index].id == parseInt(storyId)) {
-                stories[index] = story;
-                stories[index].id = parseInt(storyId);
+    if (familyMemberId) {
+        for (let index = 0; index < familyMembers.length; index++) {
+            if (familyMembers[index].id == parseInt(familyMemberId)) {
+                familyMembers[index] = familyMember;
+                familyMembers[index].id = parseInt(familyMemberId);
                 
                 break;
             }
         }
     } else {
-        if (stories.length == 0) {
-            story.id = 1;
+        if (familyMembers.length == 0) {
+            familyMember.id = 1;
         } else {
-            story.id = stories.length + 1;
+            familyMember.id = familyMembers.length + 1;
         }
 
-        stories.push(story);
+        familyMembers.push(familyMember);
     }
 
-    window.localStorage.stories = JSON.stringify(stories);
-    window.location.href = "./story-details.html?id=" + story.id;
+    window.localStorage.familyMembers = JSON.stringify(familyMembers);
+    window.location.href = "./family-member-details.html?id=" + familyMember.id;
 
     return false;
 }

@@ -14,67 +14,22 @@
         <iframe src="header.html" width="100%"></iframe>
     </header>
     <div class="content">
-        <h1 class="title">Story</h1>
-        <form id="upsertStoryForm">
-            <!-- Title -->
-            <div>
-                <label for="title">Title</label>
-                <input id="title" type="text" placeholder="Enter Title" required />
+        <h1 class="title">Family Member</h1>
+        <form id="upsert-family-member-form">
+            <!-- First Name -->
+            <div class="profile-info">
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text" required />
             </div>
-            <!-- Text -->
-            <div>
-                <label for="text">Text</label>
-                <textarea id="text" rows="4" cols="50" placeholder="Enter Text" required></textarea>
+            <!-- Last Name -->
+            <div class="profile-info">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" required />
             </div>
-            <!-- Lat -->
-            <div>
-                <label for="lat">Lat</label>
-                <span id="lat">12.4</span>
-            </div>
-            <!-- Long -->
-            <div>
-                <label for="long">Long</label>
-                <span id="long">12.4</span>
-            </div>
-            <!-- Address 1 -->
-            <div>
-                <label for="address1">Address 1</label>
-                <input id="address1" type="text" placeholder="Enter Address 1" />
-            </div>
-            <!-- Address 2 -->
-            <div>
-                <label for="address2">Address 2</label>
-                <input id="address2" type="text" placeholder="Enter Address 2" />
-            </div>
-            <!-- City -->
-            <div>
-                <label for="city">City</label>
-                <input id="city" type="text" placeholder="Enter City" />
-            </div>
-            <!-- State -->
-            <div>
-                <label for="state">State</label>
-                <input id="state" type="text" placeholder="Enter State" />
-            </div>
-            <!-- Zip -->
-            <div>
-                <label for="zip">Zip</label>
-                <input id="zip" type="text" placeholder="Enter Zip" />
-            </div>
-            <!-- Country -->
-            <div>
-                <label for="country">Country</label>
-                <input id="country" type="text" placeholder="Enter Country" />
-            </div>
-            <!-- Date/Time -->
-            <div>
-                <label for="date-time">Date/Time</label>
-                <input id="date-time" type="datetime" placeholder="Enter Date/Time" />
-            </div>
-            <!-- Published -->
-            <div>
-                <label for="published">Publish</label>
-                <input id="published" type="checkbox" />
+            <!-- DOB -->
+            <div class="profile-info">
+                <label for="DOB">Date of Birth</label>
+                <input type="date" id="dob" data-date-inline-picker="true" />
             </div>
 
             <div class="buttons">
@@ -87,8 +42,8 @@
         <iframe class="footer" src="footer.html" width="100%"></iframe>
     </footer>
 
-    <script src="./src/stories.js"></script>
-    <script src="./src/upser-story.js"></script>
+    <script src="./src/family-members.js"></script>
+    <script src="./src/upsert-family-member.js"></script>
 </body>
 
 </html>

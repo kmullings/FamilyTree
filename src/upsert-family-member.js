@@ -1,5 +1,5 @@
 window.onload = function (e) {
-    debugger;
+    // debugger;
 
     // Checked user is logged in
     if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
@@ -8,18 +8,18 @@ window.onload = function (e) {
     }
 
     const url = new URL(window.location.href);
-    const storyId = url.searchParams.get("id");
+    const familyMemberId = url.searchParams.get("id");
 
-    if (storyId) {
-        const results = loadStory();
+    if (familyMemberId) {
+        const results = loadFamilyMember();
 
-        displayStoryForEdit(results.story);
+        displayFamilyMemberForEdit(results.familyMember);
     }
 };
 
-document.getElementById("upsertStoryForm").addEventListener("submit", function (e) {
-    debugger;
+document.getElementById("upsert-family-member-form").addEventListener("submit", function (e) {
+    // debugger;
 
     e.preventDefault();
-    saveStory();
+    saveFamilyMember();
 });
